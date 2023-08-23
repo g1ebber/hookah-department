@@ -8,11 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 import com.glebber.hookahdepartment.Ingredient.Type;
+import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
 @RequestMapping("/design")
-@SessionAttributes("Order")
+@SessionAttributes("hookahOrder")
 public class HookahOrderController {
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
@@ -35,7 +36,7 @@ public class HookahOrderController {
     public Order order() {
         return new Order();
     }
-    @ModelAttribute(name = "hookah")
+    @ModelAttribute(name = "hookahBuild")
     public HookahBuild hookah() {
         return new HookahBuild();
     }
