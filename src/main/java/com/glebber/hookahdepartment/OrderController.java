@@ -10,7 +10,7 @@ import com.glebber.hookahdepartment.Order;
 @Slf4j
 @Controller
 @RequestMapping("/orders")
-@SessionAttributes("order")
+@SessionAttributes("hookahOrder")
 public class OrderController {
     @GetMapping("/current")
     public String orderForm() {
