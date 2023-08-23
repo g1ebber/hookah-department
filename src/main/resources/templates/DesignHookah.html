@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hookah-Department</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<h1>Design your taco!</h1>
+<img th:src="@{/images/Hookah.png}"/>
+<form method="POST" th:object="${hookahOrder}">
+    <div class="grid">
+        <div class="ingredient-group" id="bowls">
+            <h3>Choose your bowl:</h3>
+            <div th:each="ingredient : ${bowl}">
+                <input th:field="*{hookahBuildList}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="coals">
+            <h3>Pick your coal:</h3>
+            <div th:each="ingredient : ${coal}">
+                <input th:field="*{hookahBuildList}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="tobacco">
+            <h3>Determine your tobacco:</h3>
+            <div th:each="ingredient : ${tobacco}">
+                <input th:field="*{hookahBuildList}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="hookah">
+            <h3>Select your hookah:</h3>
+            <div th:each="ingredient : ${hookah}">
+                <input th:field="*{hookahBuildList}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Name your order creation:</h3>
+        <input type="text" th:field="*{name}"/>
+        <br/>
+        <button>Submit Your order</button>
+    </div>
+</form>
+</body>
+</html>
